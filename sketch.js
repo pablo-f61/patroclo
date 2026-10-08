@@ -15,7 +15,7 @@ function setup() {
 }
 
 function draw() {
-  background(20);
+  background(255);
 
   // Si la pantalla es más alta que ancha (celular en vertical)
   if (height > width) {
