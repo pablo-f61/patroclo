@@ -30,8 +30,8 @@ function draw() {
     }
 
     // 📐 PARA OCUPAR TODA LA PANTALLA SIN BARRAS
-    let imgWidth = width;   // Ancho = ancho de la pantalla
-    let imgHeight = height; // Alto = alto de la pantalla
+    let imgWidth = 800;   // Ancho = ancho de la pantalla
+    let imgHeight = 600; // Alto = alto de la pantalla
 
     if (isGlitching) {
       tint(random(255), random(255), random(255), 255);
