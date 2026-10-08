@@ -29,7 +29,7 @@ function draw() {
 function mostrarMensajeGirar() {
   // Fondo oscuro semitransparente para destacar el mensaje
   push();
-  fill(0, 0, 0, 180);
+  fill(255);
   rectMode(CORNER);
   rect(0, 0, width, height);
 
