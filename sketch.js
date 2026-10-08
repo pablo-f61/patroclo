@@ -15,23 +15,40 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(20);
 
+  // Verificamos si la pantalla está en vertical (alto mayor que ancho)
+  if (height > width) {
+    mostrarMensajeGirar();
+  } else {
+    // Si la pantalla está horizontal, dibuja el sketch normal
+    dibujarMiSketch();
+  }
+}
+
+function mostrarMensajeGirar() {
+  fill(255);
+  textAlign(CENTER, CENTER);
+  textSize(22);
+  text("📱 🔄\nPor favor, girá tu pantalla\npara una mejor experiencia", width / 2, height / 2);
+}
+
+function dibujarMiSketch() {
   if (img) {
     colorShift = (frameCount * 0.5) % 360;
     let h = colorShift;
     let s = 100;
     let b = 100;
 
-    if (keyIsDown(81)) {
+    // Calculamos el tamaño para que cubra la pantalla responsive
+    let imgWidth = width;
+    let imgHeight = height;
+
+    if (keyIsDown(81)) { // Tecla Q
       isGlitching = true;
     } else {
       isGlitching = false;
     }
-
-    // 📐 PARA OCUPAR TODA LA PANTALLA SIN BARRAS
-    let imgWidth = 800;   // Ancho = ancho de la pantalla
-    let imgHeight = 600; // Alto = alto de la pantalla
 
     if (isGlitching) {
       tint(random(255), random(255), random(255), 255);
@@ -46,6 +63,7 @@ function draw() {
       image(img, width / 2, height / 2, imgWidth, imgHeight);
     }
   } else {
+    fill(255);
     textSize(24);
     textAlign(CENTER, CENTER);
     text("Cargando imagen...", width / 2, height / 2);
@@ -64,6 +82,7 @@ function keyReleased() {
   }
 }
 
+// Reajusta el lienzo cuando se gira la pantalla o se cambia el tamaño de ventana
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
